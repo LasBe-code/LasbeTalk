@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "690569827021",
+    "project_id": "lasbetalk-ee868",
+    "storage_bucket": "lasbetalk-ee868.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690569827021:android:0b339eafb3f3c2bae4cf84",
+        "android_client_info": {
+          "package_name": "com.example.lasbetalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690569827021-gsm714gaid2vi1thvj6pf9t06ma5ad8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lasbetalk",
+            "certificate_hash": "146dbec0b50008cea10e7d4a4f672ca5ed935f06"
+          }
+        },
+        {
+          "client_id": "690569827021-uiu9pvd3b8q7fj3umigcbrmsave3p3pp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu2O794P2ZKEz1HkNCVf2gMYnPJaHET8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690569827021-uiu9pvd3b8q7fj3umigcbrmsave3p3pp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
