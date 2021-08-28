@@ -121,6 +121,7 @@ class ProfileFragment : Fragment() {
         button?.setOnClickListener{
             if(name?.text!!.isNotEmpty()) {
                 fireDatabase.child("users/$uid/name").setValue(name.text.toString())
+                name.clearFocus()
                 Toast.makeText(requireContext(), "이름이 변경되었습니다.", Toast.LENGTH_SHORT).show()
             }
         }
