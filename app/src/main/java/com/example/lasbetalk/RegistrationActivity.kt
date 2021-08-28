@@ -26,17 +26,19 @@ import kotlinx.android.synthetic.main.activity_registration.*
 
 
 private lateinit var auth: FirebaseAuth
-private lateinit var database: DatabaseReference
+lateinit var database: DatabaseReference
 
 @Suppress("DEPRECATION")
 class RegistrationActivity: AppCompatActivity() {
     private var profile : ImageView? = null
     private var imageUri : Uri? = null
+
+    //이미지 등록
     private val getContent =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if(result.resultCode == RESULT_OK) {
                 imageUri = result.data?.data //이미지 경로 원본
-                registration_iv.setImageURI(result.data?.data) //이미지 뷰를 바꿈
+                registration_iv.setImageURI(imageUri) //이미지 뷰를 바꿈
                 Log.d("이미지", "성공")
             }
             else{
@@ -62,7 +64,6 @@ class RegistrationActivity: AppCompatActivity() {
         profile.setOnClickListener{
             val intentImage = Intent(Intent.ACTION_PICK)
             intentImage.type = MediaStore.Images.Media.CONTENT_TYPE
-//            startActivityForResult(intentImage, PICK_FROM_ALBUM)
             getContent.launch(intentImage)
             profileCheck = true
         }

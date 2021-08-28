@@ -21,7 +21,7 @@ class LoginActivity: AppCompatActivity() {
         val email = findViewById<EditText>(R.id.et_login_id)
         val password = findViewById<EditText>(R.id.et_login_password)
 
-        val btn_login = findViewById<Button>(R.id.btn_login)
+        val btn_login = findViewById<Button>(R.id.profile_button)
 
         btn_login.setOnClickListener{
             if(email.text.isEmpty() && password.text.isEmpty()) {

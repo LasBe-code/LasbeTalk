@@ -9,15 +9,14 @@
 
     <ImageView
         android:id="@+id/registration_iv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/addimage"
         app:layout_constraintBottom_toTopOf="@+id/et_registration_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_registration_id"
@@ -25,12 +24,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/stroke"
+        android:drawableLeft="@drawable/drawable_email"
+        android:drawablePadding="10dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
+        android:paddingLeft="8dp"
         android:textColor="#000000"
         android:textColorHint="#888888"
         android:textSize="30sp"
@@ -42,18 +43,18 @@
 
     <EditText
         android:id="@+id/et_registration_password"
+        android:drawableLeft="@drawable/drawable_password"
+        android:drawablePadding="10dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/stroke"
         android:hint="Password"
         android:inputType="textPassword"
-        android:paddingLeft="10dp"
+        android:paddingLeft="8dp"
         android:textColor="#000000"
         android:textColorHint="#888888"
         android:textSize="30sp"
@@ -65,16 +66,16 @@
 
     <EditText
         android:id="@+id/et_registration_name"
+        android:drawableLeft="@drawable/drawable_name"
+        android:drawablePadding="10dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/stroke"
         android:hint="Name"
-        android:paddingLeft="10dp"
+        android:paddingLeft="8dp"
         android:textColor="#000000"
         android:textColorHint="#888888"
         android:textSize="30sp"
@@ -92,30 +93,13 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="Sign In"
+        android:text="Sign Up"
         android:textColor="#FFFFFF"
         app:backgroundTint="#FFFF9800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_registration_name" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:text="Sign In"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#FF9800"
-        android:textSize="100sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/registration_iv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
