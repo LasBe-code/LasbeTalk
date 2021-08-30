@@ -30,7 +30,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
@@ -87,20 +86,16 @@ class ProfileFragment : Fragment() {
     ): View? {
         //view 선언을 안하고 return에 바로 적용시키면 glide가 작동을 안함
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-
-        val fireDatabase = FirebaseDatabase.getInstance().reference
-
         val photo = view?.findViewById<ImageView>(R.id.profile_imageview)
+
         val email = view?.findViewById<TextView>(R.id.profile_textview_email)
         val name = view?.findViewById<TextView>(R.id.profile_textview_name)
         val button = view?.findViewById<Button>(R.id.profile_button)
-
 
         //프로필 구현
         fireDatabase.child("users").child(uid).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
             }
-
             override fun onDataChange(snapshot: DataSnapshot) {
                 val userProfile = snapshot.getValue<Friend>()
                 println(userProfile)
@@ -111,7 +106,6 @@ class ProfileFragment : Fragment() {
                 name?.text = userProfile?.name
             }
         })
-
         //프로필사진 바꾸기
         photo?.setOnClickListener{
             val intentImage = Intent(Intent.ACTION_PICK)
@@ -125,7 +119,6 @@ class ProfileFragment : Fragment() {
                 Toast.makeText(requireContext(), "이름이 변경되었습니다.", Toast.LENGTH_SHORT).show()
             }
         }
-
         return view
     }
 }

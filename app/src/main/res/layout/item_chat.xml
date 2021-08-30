@@ -7,15 +7,16 @@
     >
     <ImageView
         android:id="@+id/chat_item_imageview"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginBottom="4dp"
         android:layout_width="60dp"
         android:layout_height="60dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="4dp">
 
         <TextView
             android:id="@+id/chat_textview_title"
