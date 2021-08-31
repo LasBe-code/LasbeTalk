@@ -74,8 +74,8 @@ class ChatFragment : Fragment() {
         private val destinationUsers : ArrayList<String> = arrayListOf()
 
         init {
-            println(uid)
             uid = Firebase.auth.currentUser?.uid.toString()
+            println(uid)
 
             fireDatabase.child("chatrooms").orderByChild("users/$uid").equalTo(true).addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onCancelled(error: DatabaseError) {
@@ -142,7 +142,5 @@ class ChatFragment : Fragment() {
         override fun getItemCount(): Int {
             return chatModel.size
         }
-
-
     }
 }

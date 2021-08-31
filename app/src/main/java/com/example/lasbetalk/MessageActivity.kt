@@ -2,6 +2,7 @@ package com.example.lasbetalk
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -23,6 +24,7 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_message.*
+import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -34,6 +36,8 @@ class MessageActivity : AppCompatActivity() {
     private var destinationUid : String? = null
     private var uid : String? = null
     private var recyclerView : RecyclerView? = null
+    private var friendName : String? = null
+    private var roomChecker : Boolean = false
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +65,14 @@ class MessageActivity : AppCompatActivity() {
             if(chatRoomUid == null){
                 imageView.isEnabled = false
                 fireDatabase.child("chatrooms").push().setValue(chatModel).addOnSuccessListener {
+                    //채팅방 생성
                     checkChatRoom()
+                    //메세지 보내기
+                    Handler().postDelayed({
+                        println(chatRoomUid)
+                        fireDatabase.child("chatrooms").child(chatRoomUid.toString()).child("comments").push().setValue(comment)
+                        messageActivity_editText.text = null
+                    }, 1000L)
                     Log.d("chatUidNull dest", "$destinationUid")
                 }
             }else{
@@ -72,6 +83,7 @@ class MessageActivity : AppCompatActivity() {
         }
         checkChatRoom()
     }
+
     private fun checkChatRoom(){
         fireDatabase.child("chatrooms").orderByChild("users/$uid").equalTo(true)
                 .addListenerForSingleValueEvent(object : ValueEventListener{
@@ -103,6 +115,7 @@ class MessageActivity : AppCompatActivity() {
                 }
                 override fun onDataChange(snapshot: DataSnapshot) {
                     friend = snapshot.getValue<Friend>()
+                    messageActivity_textView_topName.text = friend?.name
                     getMessageList()
                 }
             })
@@ -120,6 +133,7 @@ class MessageActivity : AppCompatActivity() {
                         println(comments)
                     }
                     notifyDataSetChanged()
+                    //메세지를 보낼 시 화면을 맨 밑으로 내림
                     recyclerView?.scrollToPosition(comments.size - 1)
                 }
             })
