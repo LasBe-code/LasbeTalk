@@ -30,7 +30,6 @@ lateinit var database: DatabaseReference
 
 @Suppress("DEPRECATION")
 class RegistrationActivity: AppCompatActivity() {
-    private var profile : ImageView? = null
     private var imageUri : Uri? = null
 
     //이미지 등록
@@ -106,12 +105,8 @@ class RegistrationActivity: AppCompatActivity() {
                             }
                         }
                     }
-
-
-
             }
         }
-
     }
     public override fun onStart() {
         super.onStart()
@@ -122,21 +117,10 @@ class RegistrationActivity: AppCompatActivity() {
         }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-    }
-
     private fun reload() {
     }
 
     companion object {
         private const val TAG = "EmailPassword"
     }
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if(requestCode == PICK_FROM_ALBUM && resultCode == RESULT_OK){
-//            imageUri = data?.data //이미지 경로 원본
-//            registration_iv.setImageURI(imageUri) //이미지 뷰를 바꿈
-//        }
-//    }
 }

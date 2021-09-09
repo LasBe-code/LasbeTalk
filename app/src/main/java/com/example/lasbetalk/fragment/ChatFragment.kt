@@ -88,12 +88,9 @@ class ChatFragment : Fragment() {
                     }
                     notifyDataSetChanged()
                 }
-
             })
-
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-
 
             return CustomViewHolder(LayoutInflater.from(context).inflate(R.layout.item_chat, parent, false))
         }
@@ -116,7 +113,6 @@ class ChatFragment : Fragment() {
             fireDatabase.child("users").child("$destinationUid").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
                 }
-
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val friend = snapshot.getValue<Friend>()
                     Glide.with(holder.itemView.context).load(friend?.profileImageUrl)
@@ -125,7 +121,7 @@ class ChatFragment : Fragment() {
                     holder.textView_title.text = friend?.name
                 }
             })
-            //메세지 내림차순 정렬 후 마지막 메세지의 키값을 가져
+            //메세지 내림차순 정렬 후 마지막 메세지의 키값을 가져옴
             val commentMap = TreeMap<String, ChatModel.Comment>(reverseOrder())
             commentMap.putAll(chatModel[position].comments)
             val lastMessageKey = commentMap.keys.toTypedArray()[0]
@@ -138,7 +134,6 @@ class ChatFragment : Fragment() {
                 context?.startActivity(intent)
             }
         }
-
         override fun getItemCount(): Int {
             return chatModel.size
         }

@@ -36,8 +36,6 @@ class MessageActivity : AppCompatActivity() {
     private var destinationUid : String? = null
     private var uid : String? = null
     private var recyclerView : RecyclerView? = null
-    private var friendName : String? = null
-    private var roomChecker : Boolean = false
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,7 +101,6 @@ class MessageActivity : AppCompatActivity() {
             }
         })
     }
-
 
     inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MessageViewHolder>() {
 
@@ -179,6 +176,5 @@ class MessageActivity : AppCompatActivity() {
         override fun getItemCount(): Int {
             return comments.size
         }
-
     }
 }

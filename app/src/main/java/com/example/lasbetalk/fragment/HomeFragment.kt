@@ -54,13 +54,9 @@ class HomeFragment : Fragment() {
         database = Firebase.database.reference
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.home_recycler)
+        //this는 액티비티에서 사용가능, 프래그먼트는 requireContext()로 context 가져오기
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = RecyclerViewAdapter()
-
-
-//      val recyclerView : RecyclerView = view!!.findViewById<RecyclerView>(R.id.home_recycler)
-//      recyclerView.adapter = RecyclerViewAdapter()
-//      recyclerView.layoutManager = LinearLayoutManager(inflater.context) //this는 액티비티에서 사용가능 inflater.context는 됨
 
         return view
     }
@@ -84,8 +80,6 @@ class HomeFragment : Fragment() {
             })
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-
-
             return CustomViewHolder(LayoutInflater.from(context).inflate(R.layout.item_home, parent, false))
         }
 
@@ -112,7 +106,5 @@ class HomeFragment : Fragment() {
         override fun getItemCount(): Int {
             return friend.size
         }
-
-
     }
 }
