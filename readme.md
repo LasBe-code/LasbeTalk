@@ -2,7 +2,7 @@
 
 # ⚡️LasBeTalk
 
-Kotlin + FireBase, RealTimeDatabase 기반의 채팅 어플리케이션입니다.
+Kotlin + Firebase, RealTimeDatabase 기반의 채팅 어플리케이션입니다.
 
 개인적인 궁금증으로 시작된 토이 프로젝트입니다.
 
@@ -23,8 +23,9 @@ Kotlin + FireBase, RealTimeDatabase 기반의 채팅 어플리케이션입니다
 # 📙 주요 키워드
 
 - Kotlin 문법과 기초 학습 기회
-- FireBase 사용과 RealTimeDatabase를 이용한 채팅 프로그램 제작 경험
-- FireBase Authentication을 이용한 회원가입 및 로그인
+- 별도 서버 없이 Firebase 사용과 RealTimeDatabase를 이용한 채팅 서비스 구현
+- Firebase Authentication을 이용한 회원가입 및 로그인
+- Firebase Storage를 이용한 프로필 이미지 저장 및 불러오기
 
 # 📱 참고 자료
 [제작일지](https://lasbe.tistory.com/18?category=880975)
